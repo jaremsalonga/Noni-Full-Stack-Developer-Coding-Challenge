@@ -45,6 +45,11 @@ export default [{
     component: page('home.vue')
   },
   {
+    path: '/notes/:id',
+    name: 'notes',
+    component: page('notes/splash.vue')
+  },
+  {
     path: '/settings',
     component: page('settings/index.vue'),
     children: [{

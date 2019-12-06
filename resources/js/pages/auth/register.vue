@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <div class="col-lg-8 m-auto">
-      <card v-if="mustVerifyEmail" :title="$t('register')">
+      <div v-if="mustVerifyEmail">
         <div class="alert alert-success" role="alert">
           {{ $t('verify_email_address') }}
         </div>
-      </card>
-      <card v-else :title="$t('register')">
+      </div>
+      <div v-else>
         <form @submit.prevent="register" @keydown="form.onKeydown($event)">
           <!-- Name -->
           <div class="form-group row">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </form>
-      </card>
+      </div>
     </div>
   </div>
 </template>

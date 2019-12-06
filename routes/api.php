@@ -13,12 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'Auth\LoginController@logout');
 
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    Route::post('/notes', 'NotesController@store');
+    Route::get('/notes', 'NotesController@index');
+    Route::delete('/notes/{id}', 'NotesController@delete');
+    Route::put('/notes/{id}', 'NotesController@update');
+    Route::get('/notes/{id}', 'NotesController@show');
 
     Route::patch('settings/profile', 'Settings\ProfileController@update');
     Route::patch('settings/password', 'Settings\PasswordController@update');
